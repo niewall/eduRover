@@ -1,0 +1,6 @@
+    i= 0
+    while i<6:
+     backward(255,i+1)
+     i = i +1
+     #write(i)
+     print(i)

@@ -1,0 +1,4 @@
+from operations import  *
+
+def program():
+    i=0
