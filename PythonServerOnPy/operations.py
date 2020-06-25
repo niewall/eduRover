@@ -1,19 +1,12 @@
 import struct
 import time
-import serial
 
 Raspberry = False
 if Raspberry:
     from write import writeToScreen,writeCach, showCachText
     from abstand import distanz, ledAn, sound
+    import serial
 
-arduino = serial.Serial(
-    port='/dev/ttyUSB0',
-    baudrate=9600,
-    parity=serial.PARITY_NONE,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.EIGHTBITS,
-    timeout=0.1)
 
 output = []
 ArrayMethode = True

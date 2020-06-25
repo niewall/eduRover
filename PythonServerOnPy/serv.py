@@ -14,14 +14,6 @@ if Raspberry:
 
 inputF = ""
 
-arduino = serial.Serial(
-    port='/dev/ttyUSB0',
-    baudrate=9600,
-    parity=serial.PARITY_NONE,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.EIGHTBITS,
-    timeout=0.1)
-
 class Serv(BaseHTTPRequestHandler):
 
     def do_PUT(self):  # For whole Programms    //in cmd: curl -T input.txt http://192.168.2.186:8080/
@@ -52,18 +44,7 @@ class Serv(BaseHTTPRequestHandler):
 
 
 def execute(pOutput):
-    i = 0
-    while i < len(pOutput):
-        data = arduino.readline()[:-2]  # [:-2]  löscht den Zeilenumbruch
-        if data != b'':
-            print(data)
-        if data == b'finished':
-
-            for z in range(6):  # Every 6 values are one Driving Command for both Motors
-                arduino.write(struct.pack('>B', int(pOutput[i])))
-                #time.sleep(0.1)
-                i += 1
-            print("______")
+    print(pOutput)
 
 
 def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Datei kombinieren und danach ausführen
