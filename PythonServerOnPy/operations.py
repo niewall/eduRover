@@ -1,5 +1,6 @@
 import struct
 import time
+from directDrive import *
 
 Raspberry = False
 if Raspberry:
@@ -73,26 +74,29 @@ def piep(mode, time):
 
 def send(pCommandArray):
 
-    commandArray = pCommandArray
-    index = 0
-    data = arduino.readline()[:-2]  # the last bit gets rid of the new-line chars
-    while data != b'finished':
-        data = arduino.readline()[:-2]
-        print(data)
+    pTime = pCommandArray[2]
+    speed = pCommandArray[0]
+    speed2 = pCommandArray[3]
 
-    for z in range(6):  # Every 6 values are one Driving Command for both Motors
-        if int(commandArray[index]) > 255:
-            commandArray[index] = 255
-        arduino.write(struct.pack('>B', int(commandArray[index])))
-        #time.sleep(0.01)
-        index += 1
-    print("______")
+    if speed == 1:
+        duty = 12
+    if speed == 2:
+        duty = 2
+    if speed2 == 1:
+        duty2 = 12
+    if speed2 == 2:
+        duty2 = 2
 
-    #Waiting for Command to be executed because for some reason the finish is posted to soon
-    if commandArray[2] > commandArray[5]:
-        time.sleep(commandArray[2])
-    else:
-        time.sleep(commandArray[5])
+    GPIO.output(servoPIN, True)
+    GPIO.output(servoPIN2, True)
+    p.ChangeDutyCycle(duty)
+    p2.ChangeDutyCycle(duty2)
+    print(speed, pTime,speed2, pTime)
+    time.sleep(pTime)
+    GPIO.output(servoPIN, False)
+    GPIO.output(servoPIN2, False)
+    p.ChangeDutyCycle(0)
+    p2.ChangeDutyCycle(0)
 
 
 

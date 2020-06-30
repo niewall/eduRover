@@ -12,18 +12,6 @@ Raspberry = False
 if Raspberry:
     import write
 
-servoPIN = 17
-servoPIN2 = 27
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(servoPIN, GPIO.OUT)
-GPIO.setup(servoPIN2, GPIO.OUT)
-
-
-p = GPIO.PWM(servoPIN, 50) # GPIO 17 als PWM mit 50Hz
-p.start(0) # Initialisierung
-p2 = GPIO.PWM(servoPIN2, 50) # GPIO 17 als PWM mit 50Hz
-p2.start(0) # Initialisierung
 
 inputF = ""
 
