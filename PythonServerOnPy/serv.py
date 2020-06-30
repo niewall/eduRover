@@ -81,7 +81,7 @@ def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Date
 
 
 hostname = socket.gethostname()
-ip = netifaces.ifaddresses("{C8D05377-E107-4707-A118-BACCD51D82B5}")[2][0]["addr"]
+ip = netifaces.ifaddresses("wlan0")[2][0]["addr"]
 
 print("MotorControl 3000X Pro ver 0.0.3 by NieWall")
 print("Der Computer-Name: " + hostname)

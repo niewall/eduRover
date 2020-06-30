@@ -9,7 +9,7 @@ if Raspberry:
 
 
 output = []
-ArrayMethode = True
+ArrayMethode = False
 
 
 def forward(pSpeed, pTime):
