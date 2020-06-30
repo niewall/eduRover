@@ -12,11 +12,13 @@ try:
   time.sleep(5)
   p.ChangeDutyCycle(6.25)
   time.sleep(5)
+  p.ChangeDutyCycle(9.375)
+  time.sleep(5)
   p.ChangeDutyCycle(12.5)
   time.sleep(5)
 
 
-except KeyboardInterrupt:
+
   p.stop()
   GPIO.cleanup()
 
