@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ff76f172-7288-4fed-989c-c68effb5ea0b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/PythonServerOnPy/directDrive.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonServerOnPy/directDrive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PythonServerOnPy/testingServos.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonServerOnPy/testingServos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PythonServerOnPy/serv.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonServerOnPy/serv.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +16,23 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/PythonServerOnPy/testingServos.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="443">
                     <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+                    <folding>
+                      <element signature="e#0#23#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/PythonServerOnPy/directDrive.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="38">
+                    <caret line="2" selection-start-line="2" selection-end-line="2" />
                     <folding>
                       <element signature="e#0#23#0" expanded="true" />
                     </folding>
@@ -35,11 +47,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PythonServerOnPy/serv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1577">
-              <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+            <state relative-caret-position="475">
+              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -84,15 +96,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PythonServerOnPy/directDrive.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PythonServerOnPy/abstand.py">
           <provider selected="true" editor-type-id="text-editor" />
@@ -126,11 +129,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/PythonServerOnPy/write.py" />
-        <option value="$PROJECT_DIR$/PythonServerOnPy/serv.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/operations.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/ControllMotor/testingServos.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/testingServos.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/directDrive.py" />
+        <option value="$PROJECT_DIR$/PythonServerOnPy/serv.py" />
       </list>
     </option>
   </component>
@@ -256,16 +259,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/serv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PythonServerOnPy/executer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -278,16 +271,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PythonServerOnPy/programF.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/operations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PythonServerOnPy/abstand.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -318,10 +301,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/operations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PythonServerOnPy/directDrive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/serv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
