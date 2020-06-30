@@ -10,18 +10,22 @@ p.start(2.5) # Initialisierung
 
 
 
-def SetAngle(angle):
-    duty = angle / 18 + 2
+def drive(speed, timeV):
+    if speed == 1:
+        duty = 12
+    if speed == -1:
+        duty = 2
     GPIO.output(servoPIN, True)
     p.ChangeDutyCycle(duty)
-    print(angle, duty)
-    time.sleep(5)
+    print(speed, timeV)
+    time.sleep(timeV)
     GPIO.output(servoPIN, False)
     p.ChangeDutyCycle(0)
 
-SetAngle(0)
-SetAngle(90)
-SetAngle(180)
+drive(1,5)
+drive(-1,5)
+drive(1,1)
+drive(-1,1)
 
 
 
