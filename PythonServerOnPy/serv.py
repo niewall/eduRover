@@ -26,7 +26,7 @@ class Serv(BaseHTTPRequestHandler):
         self.send_response(201, 'Created')
         self.end_headers()
         reply_body = 'Raspberry saved "%s"\n' % filename
-        write.writeToScreen("Incomming File")
+        #write.writeToScreen("Incomming File")
         self.wfile.write(reply_body.encode('utf-8'))
         makePyFileAndExecute()
 

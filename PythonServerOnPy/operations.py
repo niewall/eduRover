@@ -74,24 +74,24 @@ def piep(mode, time):
 
 def send(pCommandArray):
 
-    pTime = pCommandArray[2]
-    speed = pCommandArray[0]
-    speed2 = pCommandArray[3]
+    pTime = commandList[2]
+    direction1 = commandList[0]
+    direction2 = commandList[3]
 
-    if speed == 1:
+    if direction1 == 1:
         duty = 12
-    if speed == 2:
+    if direction1 == 2:
         duty = 2
-    if speed2 == 1:
+    if direction2 == 1:
         duty2 = 12
-    if speed2 == 2:
+    if direction2 == 2:
         duty2 = 2
 
     GPIO.output(servoPIN, True)
     GPIO.output(servoPIN2, True)
     p.ChangeDutyCycle(duty)
     p2.ChangeDutyCycle(duty2)
-    print(speed, pTime,speed2, pTime)
+    print("Direction1: " + direction1 + "Direction2: " + direction2 + "Time1: " + pTime)
     time.sleep(pTime)
     GPIO.output(servoPIN, False)
     GPIO.output(servoPIN2, False)
