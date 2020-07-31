@@ -24,6 +24,7 @@ def drive(pCommand):
     print(commandList)
 
     index = 0
+    missCounter = 0
 
     pTime = commandList[2]
     direction1 = commandList[0]
@@ -31,20 +32,31 @@ def drive(pCommand):
     speedDiff = commandList[1]
 
     if direction1 == 1:
-        duty = speedDiff
+        duty = 2
     if direction1 == 2:
-        duty = speedDiff
+        duty = 12
     if direction2 == 1:
-        duty2 = speedDiff
+        duty2 = 12
     if direction2 == 2:
-        duty2 = speedDiff
+        duty2 = 2
+
+    print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(pTime) +  " | " )
 
     GPIO.output(servoPIN, True)
     GPIO.output(servoPIN2, True)
-    p.ChangeDutyCycle(duty)
-    p2.ChangeDutyCycle(duty2)
-    print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(pTime) +  " | " )
-    time.sleep(pTime)
+
+    while index < pTime*100:
+        time.sleep(0.01)
+
+        index += 1
+
+        if missCounter <= speedDiff:
+            p.ChangeDutyCycle(duty)
+            p2.ChangeDutyCycle(duty2)
+        else:
+            p.ChangeDutyCycle(0)
+            p2.ChangeDutyCycle(0)
+
     GPIO.output(servoPIN, False)
     GPIO.output(servoPIN2, False)
     p.ChangeDutyCycle(0)

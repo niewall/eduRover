@@ -80,13 +80,13 @@ def send(pCommandArray):
     speedDiff = commandList[1]
 
     if direction1 == 1:
-        duty = 12 - ( 7 - speedDiff)
+        duty = 2
     if direction1 == 2:
-        duty = 2 + ( 7 - speedDiff)
+        duty = 12
     if direction2 == 1:
-        duty2 = 2 + ( 7 - speedDiff)
+        duty2 = 12
     if direction2 == 2:
-        duty2 = 12 - ( 7 - speedDiff)
+        duty2 = 2
 
     GPIO.output(servoPIN, True)
     GPIO.output(servoPIN2, True)
