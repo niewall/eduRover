@@ -28,15 +28,16 @@ def drive(pCommand):
     pTime = commandList[2]
     direction1 = commandList[0]
     direction2 = commandList[3]
+    speedDiff = commandList[1]
 
     if direction1 == 1:
-        duty = 12
+        duty = 12 - ( 7 - speedDiff)
     if direction1 == 2:
-        duty = 2
+        duty = 2 + ( 7 - speedDiff)
     if direction2 == 1:
-        duty2 = 2
+        duty2 = 2 + ( 7 - speedDiff)
     if direction2 == 2:
-        duty2 = 12
+        duty2 = 12 - ( 7 - speedDiff)
 
     GPIO.output(servoPIN, True)
     GPIO.output(servoPIN2, True)
