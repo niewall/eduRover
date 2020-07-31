@@ -48,14 +48,19 @@ def drive(pCommand):
     while index < pTime*100:
         time.sleep(0.01)
 
-        index += 1
-
         if missCounter <= speedDiff:
             p.ChangeDutyCycle(duty)
             p2.ChangeDutyCycle(duty2)
         else:
             p.ChangeDutyCycle(0)
             p2.ChangeDutyCycle(0)
+
+        index += 1
+        if missCounter < 10:
+            missCounter += 1
+        else:
+            missCounter = 0
+
 
     GPIO.output(servoPIN, False)
     GPIO.output(servoPIN2, False)
