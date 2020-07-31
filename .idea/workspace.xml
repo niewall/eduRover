@@ -30,11 +30,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PythonServerOnPy/operations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="76" selection-start-line="76" selection-end-line="98" selection-end-column="25" />
+            <state relative-caret-position="685">
+              <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -79,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PythonServerOnPy/directDrive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="285">
+              <caret line="27" selection-start-line="27" selection-end-line="49" selection-end-column="25" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -110,8 +110,8 @@
         <option value="$PROJECT_DIR$/PythonServerOnPy/ControllMotor/testingServos.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/testingServos.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/serv.py" />
-        <option value="$PROJECT_DIR$/PythonServerOnPy/operations.py" />
         <option value="$PROJECT_DIR$/PythonServerOnPy/directDrive.py" />
+        <option value="$PROJECT_DIR$/PythonServerOnPy/operations.py" />
       </list>
     </option>
   </component>
@@ -289,22 +289,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/operations.py">
+    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/directDrive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="76" selection-start-line="76" selection-end-line="98" selection-end-column="25" />
+        <state relative-caret-position="285">
+          <caret line="27" selection-start-line="27" selection-end-line="49" selection-end-column="25" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/directDrive.py">
+    <entry file="file://$PROJECT_DIR$/PythonServerOnPy/operations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="685">
+          <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

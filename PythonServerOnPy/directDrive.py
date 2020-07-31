@@ -34,9 +34,9 @@ def drive(pCommand):
     if direction1 == 2:
         duty = 2
     if direction2 == 1:
-        duty2 = 12
-    if direction2 == 2:
         duty2 = 2
+    if direction2 == 2:
+        duty2 = 12
 
     GPIO.output(servoPIN, True)
     GPIO.output(servoPIN2, True)
