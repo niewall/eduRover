@@ -42,22 +42,15 @@ def drive(pCommand):
 
     GPIO.output(servoPIN, True)
     GPIO.output(servoPIN2, True)
-
-    while index < pTime*100:
-        time.sleep(0.01)
-
-        index += 1
-
-        GPIO.output(servoPIN, True)
-        GPIO.output(servoPIN2, True)
-        p.ChangeDutyCycle(duty)
-        p2.ChangeDutyCycle(duty2)
-        print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(pTime) + " | ")
-        time.sleep(pTime)
-        GPIO.output(servoPIN, False)
-        GPIO.output(servoPIN2, False)
-        p.ChangeDutyCycle(0)
-        p2.ChangeDutyCycle(0)
+    p.ChangeDutyCycle(duty)
+    p2.ChangeDutyCycle(duty2)
+    print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(
+        pTime) + " | ")
+    time.sleep(pTime)
+    GPIO.output(servoPIN, False)
+    GPIO.output(servoPIN2, False)
+    p.ChangeDutyCycle(0)
+    p2.ChangeDutyCycle(0)
 
 
 
