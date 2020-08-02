@@ -20,7 +20,7 @@ def drive(pCommand):
     pCommand = pCommand[1:]
     print(pCommand)
     commandList = pCommand.split(',')
-    commandList = list(map(int, commandList))
+    commandList = list(map(float, commandList))
     print(commandList)
 
     index = 0
@@ -45,7 +45,7 @@ def drive(pCommand):
     p.ChangeDutyCycle(duty)
     p2.ChangeDutyCycle(duty2)
     print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(
-        pTime) + " | ")
+        pTime) + " |  ")
     time.sleep(pTime)
     GPIO.output(servoPIN, False)
     GPIO.output(servoPIN2, False)
