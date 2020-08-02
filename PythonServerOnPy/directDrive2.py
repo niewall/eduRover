@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 
-servoPIN = 17
-servoPIN2 = 27
+servoPIN = 18
+servoPIN2 = 12
 sPIN = 19
 sPIN2 = 26
 
