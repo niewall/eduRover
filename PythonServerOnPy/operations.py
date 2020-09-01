@@ -72,32 +72,47 @@ def piep(mode, time):
     if mode == 6:
         sound(3000, time)
 
-def send(pCommandArray):
+def send(commandList):
 
     pTime = commandList[2]
     direction1 = commandList[0]
     direction2 = commandList[3]
-    speedDiff = commandList[1]
+    duty = commandList[1]
+    duty2 = commandList[4]
 
-    if direction1 == 1:
-        duty = 2
-    if direction1 == 2:
-        duty = 12
-    if direction2 == 1:
-        duty2 = 12
-    if direction2 == 2:
-        duty2 = 2
 
-    GPIO.output(servoPIN, True)
-    GPIO.output(servoPIN2, True)
+
+
+    GPIO.output(enA, True)
+    GPIO.output(enB, True)
     p.ChangeDutyCycle(duty)
     p2.ChangeDutyCycle(duty2)
-    print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(pTime) +  " | " )
+
+    if direction1 == 1:
+        GPIO.output(serA1, True)
+        GPIO.output(serA2, False)
+    if direction1 == 2:
+        GPIO.output(serA1, False)
+        GPIO.output(serA2, True)
+    if direction2 == 1:
+        GPIO.output(serB1, True)
+        GPIO.output(serB2, False)
+    if direction2 == 2:
+        GPIO.output(serB1, False)
+        GPIO.output(serB2, True)
+
+
+    print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(
+        pTime) + " |  ")
+
     time.sleep(pTime)
-    GPIO.output(servoPIN, False)
-    GPIO.output(servoPIN2, False)
+    GPIO.output(enA, False)
+    GPIO.output(enB, False)
+    GPIO.output(serA1, False)
+    GPIO.output(serA2, False)
+    GPIO.output(serB1, False)
+    GPIO.output(serB2, False)
     p.ChangeDutyCycle(0)
     p2.ChangeDutyCycle(0)
-
 
 

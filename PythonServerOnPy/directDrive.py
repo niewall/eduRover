@@ -16,9 +16,9 @@ GPIO.setup(serA2, GPIO.OUT)
 GPIO.setup(serB1, GPIO.OUT)
 GPIO.setup(serB2, GPIO.OUT)
 
-p = GPIO.PWM(servoPIN, 50) # GPIO 17 als PWM mit 50Hz
+p = GPIO.PWM(enA, 50) # GPIO 17 als PWM mit 50Hz
 p.start(0) # Initialisierung
-p2 = GPIO.PWM(servoPIN2, 50) # GPIO 17 als PWM mit 50Hz
+p2 = GPIO.PWM(enB, 50) # GPIO 17 als PWM mit 50Hz
 p2.start(0) # Initialisierung
 
 
@@ -57,16 +57,20 @@ def drive(pCommand):
         GPIO.output(serB1, True)
         GPIO.output(serB2, False)
     if direction2 == 2:
-        GPIO.output(serB1, True)
-        GPIO.output(serB2, False)
+        GPIO.output(serB1, False)
+        GPIO.output(serB2, True)
 
 
     print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(
         pTime) + " |  ")
-    
+
     time.sleep(pTime)
     GPIO.output(enA, False)
     GPIO.output(enB, False)
+    GPIO.output(serA1, False)
+    GPIO.output(serA2, False)
+    GPIO.output(serB1, False)
+    GPIO.output(serB2, False)
     p.ChangeDutyCycle(0)
     p2.ChangeDutyCycle(0)
 
