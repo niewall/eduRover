@@ -8,7 +8,7 @@ if Raspberry:
 GPIO.setmode(GPIO.BCM)
 
 # GPIO Pins zuweisen
-GPIO_TRIGGER = 18
+GPIO_TRIGGER = 23
 GPIO_ECHO = 24
 
 # Richtung der GPIO-Pins festlegen (IN / OUT)
