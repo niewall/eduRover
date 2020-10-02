@@ -1,8 +1,7 @@
 # Bibliotheken einbinden
-global Raspberry
-if Raspberry:
-    import RPi.GPIO as GPIO
-    import time
+
+import RPi.GPIO as GPIO
+import time
 
 # GPIO Modus (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
