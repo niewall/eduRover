@@ -1,4 +1,4 @@
-Raspberry = False
+Raspberry = True
 if Raspberry:
     import Adafruit_GPIO.SPI as SPI
     import Adafruit_SSD1306

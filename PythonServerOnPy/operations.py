@@ -2,9 +2,10 @@ import struct
 import time
 from directDrive import *
 
+from write import writeToScreen, writeCach, showCachText
+
 Raspberry = False
 if Raspberry:
-    from write import writeToScreen,writeCach, showCachText
     import serial
 
 from abstand import distanz, ledAn, sound

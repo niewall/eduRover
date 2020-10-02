@@ -8,7 +8,7 @@ import os
 import netifaces
 from directDrive import drive
 
-Raspberry = False
+Raspberry = True
 if Raspberry:
     import write
 
