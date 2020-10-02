@@ -60,7 +60,6 @@ def distanz():
     # und durch 2 teilen, da hin und zurueck
     distanz = (TimeElapsed * 34300) / 2
 
-    print(distanz)
 
     return distanz
 

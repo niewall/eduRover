@@ -4,9 +4,7 @@ from directDrive import *
 
 from write import writeToScreen, writeCach, showCachText
 
-Raspberry = False
-if Raspberry:
-    import serial
+#import serial
 
 from abstand import distanz, ledAn, sound
 

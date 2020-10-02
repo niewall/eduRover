@@ -8,9 +8,7 @@ import os
 import netifaces
 from directDrive import drive
 
-Raspberry = True
-if Raspberry:
-    import write
+import write
 
 
 inputF = ""
