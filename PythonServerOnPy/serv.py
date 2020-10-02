@@ -88,10 +88,10 @@ print("Die IP-Adresse/n: ")
 print("running on IP: " + ip)
 print("running on Port 8080")
 print()
-if Raspberry:
-    write.writeToScreen("Name: " + hostname)
-    write.writeToScreen("IP: " + ip)
-    write.writeToScreen("Port: 8080")
+
+write.writeToScreen("Name: " + hostname)
+write.writeToScreen("IP: " + ip)
+write.writeToScreen("Port: 8080")
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()
