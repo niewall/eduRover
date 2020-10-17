@@ -29,7 +29,7 @@ if Raspberry:
     yCr = 0
     writeTextCach = ["", "", "", ""]
     writeCachTextCach = ["", "", "", ""]
-    fontKlein = ImageFont.truetype('Lato-Bold.ttf', 10)
+    fontKlein = ImageFont.truetype('/home/pi/eduRover/PythonServerOnPy/Lato-Bold.ttf', 10)
 
 
 

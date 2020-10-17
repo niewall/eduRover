@@ -54,7 +54,7 @@ def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Date
         data = fp.read()
 
     # Reading data from file2
-    with open('input.txt') as fp:
+    with open('/home/pi/eduRover/PythonServerOnPy/input.txt') as fp:
         lines = fp.read().split("\n")
         newlines = []
         for line in lines:
