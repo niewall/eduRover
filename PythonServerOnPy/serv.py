@@ -50,20 +50,20 @@ def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Date
 
 
     # Reading data from file1
-    with open('emptyExample.txt') as fp:
+    with open('/home/pi/eduRover/PythonServerOnPy/emptyExample.txt') as fp:
         data = fp.read()
 
     # Reading data from file2
-    with open('input.txt') as fp:
+    with open('/home/pi/eduRover/PythonServerOnPy/input.txt') as fp:
         lines = fp.read().split("\n")
         newlines = []
         for line in lines:
             line = line.rstrip()
             newline = line[:0] + '    ' + line[0:]  # Absatz vor jede Zeile Schreiben
             newlines.append(newline)
-    with open("input.txt", "w") as newfile:
+    with open("/home/pi/eduRover/PythonServerOnPy/input.txt", "w") as newfile:
         newfile.write("\n".join(newlines))
-    with open("input.txt") as newfile:
+    with open("/home/pi/eduRover/PythonServerOnPy/input.txt") as newfile:
         data2 = newfile.read()
 
     # Merging 2 files
@@ -72,7 +72,7 @@ def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Date
     data += "\n"
     data += data2
 
-    with open('programF.py', 'w') as fp:
+    with open('/home/pi/eduRover/PythonServerOnPy/programF.py', 'w') as fp:
         fp.write(data)
 
     output = executer.execute()  # Gets the output from the written program

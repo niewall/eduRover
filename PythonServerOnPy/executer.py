@@ -12,11 +12,11 @@ def execute():
     except Exception as e:
         print(e)
         write.writeToScreen("ERROR:" + str(e))
-        with open('emptyExample.txt') as fp:
+        with open('/home/pi/eduRover/PythonServerOnPy/emptyExample.txt') as fp:
             data = fp.read()
         data += "\n"
         data += "   i=0"
-        with open('programF.py', 'w') as fp:
+        with open('/home/pi/eduRover/PythonServerOnPy/programF.py', 'w') as fp:
             fp.write(data)
         programF.output.clear()  # Clearing the List before Every new request
         print("Ein Fehler ist aufgetreten!")
