@@ -19,7 +19,7 @@ class Serv(BaseHTTPRequestHandler):
         filename = os.path.basename(self.path)
         print(self.path)
         file_length = int(self.headers['Content-Length'])
-        with open('input.txt', 'wb') as output_file:
+        with open('/home/pi/eduRover/PythonServerOnPy/input.txt', 'wb') as output_file:
             output_file.write(self.rfile.read(file_length))
         self.send_response(201, 'Created')
         self.end_headers()
@@ -54,7 +54,7 @@ def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Date
         data = fp.read()
 
     # Reading data from file2
-    with open('/home/pi/eduRover/PythonServerOnPy/input.txt') as fp:
+    with open('input.txt') as fp:
         lines = fp.read().split("\n")
         newlines = []
         for line in lines:
