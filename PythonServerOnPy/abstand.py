@@ -16,9 +16,9 @@ GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 #Für die LED
 
-blue = 13
-green = 19
-red = 26
+blue = 21
+green = 20
+red = 16
 
 GPIO.setup(blue, GPIO.OUT)
 GPIO.setup(green, GPIO.OUT)
@@ -30,7 +30,7 @@ GPIO.output(red, False)
 
 #Für Piezo
 
-led = 16
+led = 26
 GPIO.setup(led, GPIO.OUT)
 GPIO.output(led, False)
 
