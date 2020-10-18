@@ -16,9 +16,9 @@ GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 #Für die LED
 
-blue = 0
-green = 5
-red = 6
+blue = 13
+green = 19
+red = 26
 
 GPIO.setup(blue, GPIO.OUT)
 GPIO.setup(green, GPIO.OUT)
@@ -30,7 +30,7 @@ GPIO.output(red, False)
 
 #Für Piezo
 
-led = 26
+led = 16
 GPIO.setup(led, GPIO.OUT)
 GPIO.output(led, False)
 
@@ -66,45 +66,45 @@ def distanz():
 def ledAn(farbe):
 
     if farbe == "rot":
-        GPIO.output(red, 1)
-        GPIO.output(green, 0)
-        GPIO.output(blue, 0)
+        GPIO.output(red, 0)
+        GPIO.output(green, 1)
+        GPIO.output(blue, 1)
 
     if farbe == "gruen":
-        GPIO.output(red, 0)
-        GPIO.output(green, 1)
-        GPIO.output(blue, 0)
+        GPIO.output(red, 1)
+        GPIO.output(green, 0)
+        GPIO.output(blue, 1)
 
     if farbe == "blau":
-        GPIO.output(red, 0)
-        GPIO.output(green, 0)
-        GPIO.output(blue, 1)
-
-    if farbe == "lila":
-        GPIO.output(red, 1)
-        GPIO.output(green, 0)
-        GPIO.output(blue, 1)
-
-    if farbe == "gelb":
         GPIO.output(red, 1)
         GPIO.output(green, 1)
         GPIO.output(blue, 0)
 
-    if farbe == "cyan":
+    if farbe == "lila":
         GPIO.output(red, 0)
         GPIO.output(green, 1)
+        GPIO.output(blue, 0)
+
+    if farbe == "gelb":
+        GPIO.output(red, 0)
+        GPIO.output(green, 0)
         GPIO.output(blue, 1)
 
-    if farbe == "weiß":
+    if farbe == "cyan":
         GPIO.output(red, 1)
-        GPIO.output(green, 1)
-        GPIO.output(blue, 1)
+        GPIO.output(green, 0)
+        GPIO.output(blue, 0)
+
+    if farbe == "weiß":
+        GPIO.output(red, 0)
+        GPIO.output(green, 0)
+        GPIO.output(blue, 0)
 
 
     if farbe == "aus":
-        GPIO.output(red, 0)
-        GPIO.output(green, 0)
-        GPIO.output(blue, 0)
+        GPIO.output(red, 1)
+        GPIO.output(green, 1)
+        GPIO.output(blue, 1)
 
 
 
