@@ -149,6 +149,8 @@ def batteryState():
             cooldown = False
         if timeout > 50:
             counting = False
+        print("Timeout: " + str(timeout))
+        print("BatState: " + str(batState))
 
     return batState
 
