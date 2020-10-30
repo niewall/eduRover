@@ -30,7 +30,7 @@ GPIO.output(red, 1)
 
 #Für Piezo
 
-#piezo =
+piezo = 26
 GPIO.setup(piezo, GPIO.OUT)
 GPIO.output(piezo, False)
 
@@ -133,7 +133,7 @@ def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
 def batteryState():
 
     GPIO.output(batSignalOut, True)
-    time.sleep(0.05)
+    time.sleep(0.02)
     GPIO.output(batSignalOut, False)
     batState = 0
     counting = True
@@ -148,7 +148,7 @@ def batteryState():
             cooldown = True
         if GPIO.input(batSignalIn) == 0:
             cooldown = False
-        if timeout > 50:
+        if timeout > 20:
             counting = False
         print(str(GPIO.input(batSignalIn)))
         print(str(cooldown))
