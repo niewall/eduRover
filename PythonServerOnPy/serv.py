@@ -99,8 +99,9 @@ write.writeToScreen("IP:  " + ip)
 write.writeToScreen("Port:  8080")
 write.writeToScreen("Battery State:  " + str(battaryStatePerc) + "%")
 if battaryStatePerc <= 5:
-    write.writeToScreen("Battery too Low -> POWER OFF")
-    call("nohup shutdown -h now", shell=True)
+    write.writeToScreen("Battery too Low")
+    write.writeToScreen("-> POWER OFF")
+    call("sudo nohup shutdown -h now", shell=True)
 
 
 httpd = HTTPServer((ip, 8080), Serv)
