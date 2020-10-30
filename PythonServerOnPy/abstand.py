@@ -30,13 +30,13 @@ GPIO.output(red, 1)
 
 #Für Piezo
 
-piezo = 13
+#piezo =
 GPIO.setup(piezo, GPIO.OUT)
 GPIO.output(piezo, False)
 
 #Für Battery
 
-batSignalIn = 19
+batSignalIn = 13
 batSignalOut = 26
 GPIO.setup(batSignalIn, GPIO.IN)
 GPIO.setup(batSignalOut, GPIO.OUT)
