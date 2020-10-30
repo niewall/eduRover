@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import math
 
 # GPIO Modus (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
@@ -158,7 +159,7 @@ def batteryState():
         #print("Timeout: " + str(timeout))
         #print("BatState: " + str(batState))
 
-    return int((batState/7) * 10) * 10
+    return math.ceil((batState/7) * 10) * 10
 
 
 

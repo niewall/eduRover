@@ -1,4 +1,5 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
+
 import socket
 import serial
 import struct
@@ -8,7 +9,7 @@ import os
 import netifaces
 from directDrive import drive
 import abstand
-
+from subprocess import call
 
 import write
 
@@ -91,10 +92,16 @@ print("running on IP: " + ip)
 print("running on Port 8080")
 print()
 
+battaryStatePerc = abstand.batteryState()
+
 #write.writeToScreen("Name: " + hostname)
 write.writeToScreen("IP:  " + ip)
 write.writeToScreen("Port:  8080")
-write.writeToScreen("Battery State:  " + str(abstand.batteryState()) + "%")
+write.writeToScreen("Battery State:  " + str(battaryStatePerc) + "%")
+if battaryStatePerc <= 5:
+    write.writeToScreen("Battery too Low -> POWER OFF")
+    call("nohup shutdown -h now", shell=True)
+
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()
