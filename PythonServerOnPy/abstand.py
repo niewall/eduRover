@@ -128,6 +128,9 @@ def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
         GPIO.output(piezo, GPIO.LOW)
         time.sleep(dur)
 
+#___Reading the Battery State_____
+#Der Raspberry sendet ein HIGH signal an den Arduino über Pin batSignalOut.
+#Der Arduino wechselt daraufhin
 
 
 def batteryState():
@@ -148,12 +151,12 @@ def batteryState():
             cooldown = True
         if GPIO.input(batSignalIn) == 0:
             cooldown = False
-        if timeout > 20:
+        if timeout > 10:
             counting = False
-        print(str(GPIO.input(batSignalIn)))
-        print(str(cooldown))
-        print("Timeout: " + str(timeout))
-        print("BatState: " + str(batState))
+        #print(str(GPIO.input(batSignalIn)))
+        #print(str(cooldown))
+        #print("Timeout: " + str(timeout))
+        #print("BatState: " + str(batState))
 
     return batState
 
