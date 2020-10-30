@@ -7,6 +7,8 @@ import executer
 import os
 import netifaces
 from directDrive import drive
+import abstand
+
 
 import write
 
@@ -89,9 +91,10 @@ print("running on IP: " + ip)
 print("running on Port 8080")
 print()
 
-write.writeToScreen("Name: " + hostname)
+#write.writeToScreen("Name: " + hostname)
 write.writeToScreen("IP: " + ip)
 write.writeToScreen("Port: 8080")
+write.writeToScreen("Battery State: " + abstand.batteryState())
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()

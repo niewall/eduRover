@@ -6,7 +6,7 @@ from write import writeToScreen, writeCach, showCachText
 
 #import serial
 
-from abstand import distanz, ledAn, sound
+from abstand import distanz, ledAn, sound, batteryState
 
 
 output = []
@@ -71,6 +71,9 @@ def piep(mode, time):
         sound(2500, time)
     if mode == 6:
         sound(3000, time)
+
+def battery():
+    return batteryState()
 
 def send(commandList):
 

@@ -24,15 +24,25 @@ GPIO.setup(blue, GPIO.OUT)
 GPIO.setup(green, GPIO.OUT)
 GPIO.setup(red, GPIO.OUT)
 
-GPIO.output(blue, False)
-GPIO.output(green, False)
-GPIO.output(red, False)
+GPIO.output(blue, 1)
+GPIO.output(green, 1)
+GPIO.output(red, 1)
 
 #Für Piezo
 
-led = 26
-GPIO.setup(led, GPIO.OUT)
-GPIO.output(led, False)
+piezo = 13
+GPIO.setup(piezo, GPIO.OUT)
+GPIO.output(piezo, False)
+
+#Für Battery
+
+batSignalIn = 19
+batSignalOut = 26
+GPIO.setup(batSignalIn, GPIO.IN)
+GPIO.setup(batSignalOut, GPIO.OUT)
+
+GPIO.output(batSignalOut, False)
+
 
 
 def distanz():
@@ -109,11 +119,38 @@ def ledAn(farbe):
 
 
 def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
-   dur=1.0/freq/2.0          # die Frequenz freq auf dem LED-Pin
-   anz=int(t/dur/2)
-   for i in range (0,anz):   # range macht, solange der zweite Wert kleiner ist
+    dur=1.0/freq/2.0          # die Frequenz freq auf dem LED-Pin
+    anz=int(t/dur/2)
+    for i in range (0,anz):  # range macht, solange der zweite Wert kleiner ist
                              # (nicht gleich), darum beginnen wir bei 0
-      GPIO.output(led, GPIO.HIGH)
-      time.sleep(dur)
-      GPIO.output(led, GPIO.LOW)
-      time.sleep(dur)
+        GPIO.output(piezo, GPIO.HIGH)
+        time.sleep(dur)
+        GPIO.output(piezo, GPIO.LOW)
+        time.sleep(dur)
+
+
+
+def batteryState():
+
+    GPIO.output(batSignalOut, True)
+    time.sleep(0.01)
+    batState = 0
+    counting = True
+    cooldown = False
+    timeout = 0
+    while counting:
+        timeout += 1
+        time.sleep(0.1)
+        if GPIO.input(batSignalIn) == 1 and not cooldown:
+            batState += 1
+            timeout = 0
+            cooldown = True
+        if GPIO.input(batSignalIn) == 1:
+            cooldown = False
+        if timeout > 50:
+            counting = False
+
+    return batState
+
+
+
