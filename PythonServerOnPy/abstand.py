@@ -133,7 +133,8 @@ def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
 def batteryState():
 
     GPIO.output(batSignalOut, True)
-    time.sleep(0.01)
+    time.sleep(0.1)
+    GPIO.output(batSignalOut, False)
     batState = 0
     counting = True
     cooldown = False
@@ -141,14 +142,15 @@ def batteryState():
     while counting:
         timeout += 1
         time.sleep(0.1)
-        if GPIO.input(batSignalIn) == 1 and not cooldown:
+        if GPIO.input(batSignalIn) == 1 and cooldown == False:
             batState += 1
             timeout = 0
             cooldown = True
-        if GPIO.input(batSignalIn) == 1:
+        if GPIO.input(batSignalIn) == 0:
             cooldown = False
         if timeout > 50:
             counting = False
+        print(str(cooldown))
         print("Timeout: " + str(timeout))
         print("BatState: " + str(batState))
 
