@@ -84,7 +84,7 @@ def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Date
 hostname = socket.gethostname()
 ip = netifaces.ifaddresses("wlan0")[2][0]["addr"]
 
-print("MotorControl 3000X Pro ver 0.0.3 by NieWall")
+print("Education Robot Software on Pi (ERoSPi) by NieWall")
 print("Der Computer-Name: " + hostname)
 print("Die IP-Adresse/n: ")
 print("running on IP: " + ip)
@@ -92,9 +92,9 @@ print("running on Port 8080")
 print()
 
 #write.writeToScreen("Name: " + hostname)
-write.writeToScreen("IP: " + ip)
-write.writeToScreen("Port: 8080")
-write.writeToScreen("Battery State: " + str(abstand.batteryState()))
+write.writeToScreen("IP:  " + ip)
+write.writeToScreen("Port:  8080")
+write.writeToScreen("Battery State:  " + str(abstand.batteryState()) + "%")
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()

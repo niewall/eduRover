@@ -158,7 +158,7 @@ def batteryState():
         #print("Timeout: " + str(timeout))
         #print("BatState: " + str(batState))
 
-    return batState
+    return int((batState/7) * 10) * 10
 
 
 
