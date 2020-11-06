@@ -31,7 +31,7 @@ GPIO.output(red, 1)
 
 #Für Piezo
 
-piezo = 26
+piezo = 25
 GPIO.setup(piezo, GPIO.OUT)
 GPIO.output(piezo, False)
 
