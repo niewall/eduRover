@@ -120,7 +120,7 @@ def ledAn(farbe):
 
 
 def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
-    dur=1.0/freq/2.0          # die Frequenz freq auf dem LED-Pin
+    dur=1.0/freq/2.0          # die Frequenz freq auf dem piezp-Pin
     anz=int(t/dur/2)
     for i in range (0,anz):  # range macht, solange der zweite Wert kleiner ist
                              # (nicht gleich), darum beginnen wir bei 0

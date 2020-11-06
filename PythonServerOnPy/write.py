@@ -68,6 +68,7 @@ if Raspberry:
             draw.text((x, 10), str(pText[29::58]), font=fontKlein, fill=255)
             draw.text((x, 20), str(pText[58:]), font=fontKlein, fill=255)
 
+            drawBatteryState()
             disp.clear()
             disp.image(image)
             disp.display()
@@ -106,6 +107,7 @@ if Raspberry:
             draw.text((x, yCr), str(writeTextCach[l]), font=fontKlein, fill=255)
             yCr = yCr + 10
 
+        drawBatteryState()
         disp.clear()
         disp.image(image)
         disp.display()
@@ -114,3 +116,7 @@ if Raspberry:
     run = True
     running = True
     x = 0
+
+
+    def drawBatteryState():
+        draw.rectangle((50,10,20,10),outline=0, fill=1)

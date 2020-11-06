@@ -29,7 +29,14 @@ class Serv(BaseHTTPRequestHandler):
         reply_body = 'Raspberry saved "%s"\n' % filename
         #write.writeToScreen("Incomming File")
         self.wfile.write(reply_body.encode('utf-8'))
-        makePyFileAndExecute()
+        battaryStatePerc = abstand.batteryState()
+        if battaryStatePerc <= 5:
+            write.writeToScreen("Battery: " + str(battaryStatePerc));
+            makePyFileAndExecute()
+        else:
+            write.writeToScreen("Battery too Low")
+            write.writeToScreen("-> POWER OFF")
+            call("sudo nohup shutdown -h now", shell=True)
 
     def do_GET(self):  # For direct Commands
         if str(self.path) != "/favicon.ico":
