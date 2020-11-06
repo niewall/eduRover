@@ -119,4 +119,4 @@ if Raspberry:
 
 
     def drawBatteryState():
-        draw.rectangle((50,10,20,10),outline=0, fill=1)
+        draw.rectangle((30,10,20,10),outline=0, fill=1)
