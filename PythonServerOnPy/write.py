@@ -133,7 +133,6 @@ if Raspberry:
         print(last)
         print(now)
         diff = last-now
-        print("diff: " + str(last-now))
         print("diff: " + str(diff.total_seconds()))
         if diff.total_seconds() > 120:
             batPercWrite = abstand.batteryState()
