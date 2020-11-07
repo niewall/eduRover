@@ -124,6 +124,14 @@ if Raspberry:
     x = 0
 
 
+    def updateBatPerc(perc):
+        global batPercWrite
+        global last
+
+        last = datetime.now()
+        batPercWrite = perc
+
+
 
     def drawBatteryState():
 
