@@ -127,10 +127,11 @@ if Raspberry:
 
     def drawBatteryState():
 
+
+        #Update Battery Status every 120 sec
         now = datetime.now()
         global last
         global batPercWrite
-
 
         print(last)
         print(now)
@@ -139,7 +140,6 @@ if Raspberry:
         if diff.total_seconds() > 120:
             batPercWrite = abstand.batteryState()
             last = datetime.now()
-
 
         batStart = 101
         length = 24
@@ -153,11 +153,11 @@ if Raspberry:
 
         #Battery State Bar
 
-        bars = int(batPercWrite / 100 * 7)-1
+        bars = int(batPercWrite / 100 * 7)
 
         for i in range(bars):
             print(i)
-            draw.rectangle((batStart + 1 + ((i*3) * 3), 2, batStart + 4 + (i * 3), 5), outline=1, fill=1)
+            draw.rectangle((batStart + 1 + (i*3), 2, batStart + 5 + (i * 3), 5), outline=1, fill=1)
 
 
 
