@@ -133,10 +133,7 @@ if Raspberry:
         global last
         global batPercWrite
 
-        print(last)
-        print(now)
         diff = now - last
-        print("diff: " + str(diff.total_seconds()))
         if diff.total_seconds() > 120:
             batPercWrite = abstand.batteryState()
             last = datetime.now()
@@ -156,7 +153,6 @@ if Raspberry:
         bars = int(batPercWrite / 100 * 7)
 
         for i in range(bars):
-            print(i)
             draw.rectangle((batStart + 1 + (i*3), 2, batStart + 5 + (i * 3), 5), outline=1, fill=1)
 
 
