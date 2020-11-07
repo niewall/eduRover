@@ -131,6 +131,7 @@ if Raspberry:
         global last
         global batPercWrite
 
+
         print(last)
         print(now)
         diff = now - last
