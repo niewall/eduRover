@@ -32,11 +32,10 @@ class Serv(BaseHTTPRequestHandler):
         battaryStatePerc = abstand.batteryState()
         if battaryStatePerc <= 5:
             write.writeToScreen("Battery too Low")
-            write.writeToScreen("-> POWER OFF")
+            write.writeToScreen("Bitte Ausschalten")
             call("sudo nohup shutdown -h now", shell=True)
         else:
-            write.writeToScreen("Battery: " + str(battaryStatePerc))
-            abstand.updateBatPerc(battaryStatePerc)
+            write.updateBatPerc(battaryStatePerc)
             makePyFileAndExecute()
 
     def do_GET(self):  # For direct Commands
