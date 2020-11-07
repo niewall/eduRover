@@ -1,9 +1,10 @@
-import serv
+from datetime import datetime
 
 Raspberry = True
 if Raspberry:
     import Adafruit_GPIO.SPI as SPI
     import Adafruit_SSD1306
+    import abstand
 
     from PIL import Image
     from PIL import ImageDraw
@@ -32,6 +33,9 @@ if Raspberry:
     writeTextCach = ["", "", "", ""]
     writeCachTextCach = ["", "", "", ""]
     fontKlein = ImageFont.truetype('/home/pi/eduRover/PythonServerOnPy/Lato-Bold.ttf', 10)
+
+    then = datetime.now()
+
 
 
 
@@ -122,6 +126,14 @@ if Raspberry:
 
     def drawBatteryState():
 
+        now = datetime.now()
+
+        print(then)
+        print(now)
+
+
+        batPercWrite = abstand.batteryState()
+
         batStart = 101
         length = 24
 
@@ -134,7 +146,8 @@ if Raspberry:
 
         #Battery State Bar
 
-        bars = int(serv.giveBattStateSavedInServ() / 100 * 7) -1
+
+        bars = int(batPercWrite / 100 * 7) -1
 
         for i in range(bars):
             draw.rectangle((batStart + 1 + ((i-1) * 3), 2, batStart + 1 + (i * 3), 5), outline=1, fill=1)

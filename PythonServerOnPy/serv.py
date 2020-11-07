@@ -101,8 +101,6 @@ print()
 
 batteryStatePerc = abstand.batteryState()
 
-def giveBattStateSavedInServ():
-    return batteryStatePerc
 
 #write.writeToScreen("Name: " + hostname)
 write.writeToScreen("IP:  " + ip)
