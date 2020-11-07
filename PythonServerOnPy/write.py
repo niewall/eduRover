@@ -1,3 +1,5 @@
+from PythonServerOnPy import serv
+
 Raspberry = True
 if Raspberry:
     import Adafruit_GPIO.SPI as SPI
@@ -119,4 +121,23 @@ if Raspberry:
 
 
     def drawBatteryState():
-        draw.rectangle((100,10,125,20),outline=0, fill=255)
+
+        batStart = 101
+        length = 24
+
+        #Battery Body:
+        draw.line((batStart, 1, batStart + length, 1), fill=1)
+        draw.line((batStart, 6, batStart + length, 6), fill=1)
+        draw.line((batStart, 2, batStart, 6), fill=1)
+        draw.line((batStart + length, 2, batStart + length, 6), fill=1)
+        draw.rectangle((batStart + length, 3, batStart + length +3, 4), outline=1, fill=1)
+
+        #Battery State Bar
+
+        bars = int(serv.battaryStatePerc / 100 * 7) -1
+
+        for i in range(bars):
+            draw.rectangle((batStart + 1 + ((i-1) * 3), 2, batStart + 1 + (i * 3), 5), outline=1, fill=1)
+
+
+
