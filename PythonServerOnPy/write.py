@@ -129,7 +129,7 @@ if Raspberry:
 
         now = datetime.now()
         global last
-
+        global batPercWrite
         print(last)
         print(now)
         diff = last-now
