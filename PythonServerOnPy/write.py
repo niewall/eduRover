@@ -153,10 +153,11 @@ if Raspberry:
 
         #Battery State Bar
 
-        bars = int(batPercWrite / 100 * 7)
+        bars = int(batPercWrite / 100 * 7)-1
 
         for i in range(bars):
-            draw.rectangle((batStart + ((i*3) * 3), 2, batStart + ((i+1) * 3), 5), outline=1, fill=1)
+            print(i)
+            draw.rectangle((batStart + ((i*3) * 3), 2, batStart + ((i+1) * 3), 5), outline=0, fill=1)
 
 
 
