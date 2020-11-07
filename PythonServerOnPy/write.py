@@ -156,7 +156,7 @@ if Raspberry:
         bars = int(batPercWrite / 100 * 7)
 
         for i in range(bars):
-            draw.rectangle((batStart + 1 + ((i*3) * 3), 2, batStart + 1 + ((i+1) * 3), 5), outline=1, fill=1)
+            draw.rectangle((batStart + ((i*3) * 3), 2, batStart + ((i+1) * 3), 5), outline=1, fill=1)
 
 
 
