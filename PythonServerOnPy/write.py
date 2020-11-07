@@ -33,8 +33,8 @@ if Raspberry:
     writeTextCach = ["", "", "", ""]
     writeCachTextCach = ["", "", "", ""]
     fontKlein = ImageFont.truetype('/home/pi/eduRover/PythonServerOnPy/Lato-Bold.ttf', 10)
-
-    then = datetime.now()
+    last = datetime.now()
+    batPercWrite = abstand.batteryState()
 
 
 
@@ -124,15 +124,20 @@ if Raspberry:
     x = 0
 
 
+
     def drawBatteryState():
 
         now = datetime.now()
 
-        print(then)
+        print(last)
         print(now)
+        diff = last-now
+        print("diff: " + str(last-now))
+        if diff.total_seconds() > 120:
+            batPercWrite = abstand.batteryState()
+            global last
+            last = datetime.now()
 
-
-        batPercWrite = abstand.batteryState()
 
         batStart = 101
         length = 24
@@ -146,8 +151,9 @@ if Raspberry:
 
         #Battery State Bar
 
+        global battaryStatePerc
 
-        bars = int(batPercWrite / 100 * 7) -1
+        bars = int(battaryStatePerc / 100 * 7) -1
 
         for i in range(bars):
             draw.rectangle((batStart + 1 + ((i-1) * 3), 2, batStart + 1 + (i * 3), 5), outline=1, fill=1)
