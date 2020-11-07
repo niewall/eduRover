@@ -1,4 +1,4 @@
-from PythonServerOnPy import serv
+import serv
 
 Raspberry = True
 if Raspberry:
@@ -134,7 +134,7 @@ if Raspberry:
 
         #Battery State Bar
 
-        bars = int(serv.battaryStatePerc / 100 * 7) -1
+        bars = int(serv.giveBattStateSavedInServ() / 100 * 7) -1
 
         for i in range(bars):
             draw.rectangle((batStart + 1 + ((i-1) * 3), 2, batStart + 1 + (i * 3), 5), outline=1, fill=1)

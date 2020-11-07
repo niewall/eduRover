@@ -99,13 +99,16 @@ print("running on IP: " + ip)
 print("running on Port 8080")
 print()
 
-battaryStatePerc = abstand.batteryState()
+batteryStatePerc = abstand.batteryState()
+
+def giveBattStateSavedInServ():
+    return batteryStatePerc
 
 #write.writeToScreen("Name: " + hostname)
 write.writeToScreen("IP:  " + ip)
 write.writeToScreen("Port:  8080")
-write.writeToScreen("Battery State:  " + str(battaryStatePerc) + "%")
-if battaryStatePerc <= 5:
+write.writeToScreen("Battery State:  " + str(batteryStatePerc) + "%")
+if batteryStatePerc <= 5:
     write.writeToScreen("Battery too Low")
     write.writeToScreen("-> POWER OFF")
     call("sudo nohup shutdown -h now", shell=True)
