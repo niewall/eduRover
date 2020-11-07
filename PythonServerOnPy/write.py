@@ -128,6 +128,7 @@ if Raspberry:
     def drawBatteryState():
 
         now = datetime.now()
+        global last
 
         print(last)
         print(now)
@@ -136,7 +137,6 @@ if Raspberry:
         print("diff: " + str(diff.total_seconds()))
         if diff.total_seconds() > 120:
             batPercWrite = abstand.batteryState()
-            global last
             last = datetime.now()
 
 
