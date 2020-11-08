@@ -36,6 +36,7 @@ class Serv(BaseHTTPRequestHandler):
             call("sudo nohup shutdown -h now", shell=True)
         else:
             write.updateBatPerc(battaryStatePerc)
+            write.showBattery(True)
             makePyFileAndExecute()
 
     def do_GET(self):  # For direct Commands

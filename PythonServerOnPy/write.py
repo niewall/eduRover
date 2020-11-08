@@ -137,7 +137,8 @@ def showBattery(state):
         showBatteryState = True
     if not state:
         showBatteryState = False
-    writeToScreen("Changed!")
+        writeToScreen("")
+
 
 
 def drawBatteryState():
