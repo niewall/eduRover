@@ -2,12 +2,11 @@ import struct
 import time
 from directDrive import *
 
-from write import writeToScreen, writeCach, showCachText
+from write import writeToScreen, writeCach, showCachText, showBattery
 
-#import serial
+# import serial
 
 from abstand import distanz, ledAn, sound, batteryState
-
 
 output = []
 ArrayMethode = False
@@ -26,6 +25,7 @@ def backward(pSpeed, pTime):
     else:
         send([2, pSpeed, pTime, 2, pSpeed, pTime])
 
+
 def turn(pDirection, pSpeed, pTime):
     if ArrayMethode:
         if pDirection == "rechts" or pDirection == "right":
@@ -38,11 +38,14 @@ def turn(pDirection, pSpeed, pTime):
         elif pDirection == "links" or pDirection == "left":
             send([2, pSpeed, pTime, 1, pSpeed, pTime])
 
+
 def write(pText):
     writeToScreen(pText)
 
+
 def writeInCach(pText):
     writeCach(pText)
+
 
 def showCach():
     showCachText()
@@ -51,14 +54,16 @@ def showCach():
 def abstand():
     return distanz()
 
+
 def wait(pTime):
     time.sleep(pTime)
+
 
 def led(pFarbe):
     ledAn(pFarbe)
 
-def piep(mode, time):
 
+def piep(mode, time):
     if mode == 1:
         sound(500, time)
     if mode == 2:
@@ -72,19 +77,21 @@ def piep(mode, time):
     if mode == 6:
         sound(3000, time)
 
+
 def battery():
     return batteryState()
 
-def send(commandList):
 
+def batteryDisplay(state):
+    showBattery(state)
+
+
+def send(commandList):
     pTime = commandList[2]
     direction1 = commandList[0]
     direction2 = commandList[3]
     duty = commandList[1]
     duty2 = commandList[4]
-
-
-
 
     GPIO.output(enA, True)
     GPIO.output(enB, True)
@@ -104,7 +111,6 @@ def send(commandList):
         GPIO.output(serB1, False)
         GPIO.output(serB2, True)
 
-
     print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(
         pTime) + " |  ")
 
@@ -117,5 +123,3 @@ def send(commandList):
     GPIO.output(serB2, False)
     p.ChangeDutyCycle(0)
     p2.ChangeDutyCycle(0)
-
-
