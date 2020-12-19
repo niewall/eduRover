@@ -1,0 +1,17 @@
+
+[Unit]
+Description=This is starting serv.py on startup
+After=multi-user.target
+Requires=network.target
+
+[Service]
+Type=idle
+
+User=pi
+ExecStart=python3.7 /home/pi/eduRover/PythonServerOnPy/serv.py
+
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

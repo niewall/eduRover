@@ -1,5 +1,13 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
+# config "sudo nano /etc/systemd/system/startServer.service" for autostart
+# to enable: "sudo systemctl daemon-reload" then:
+# "sudo systemctl enable startServer.service" and
+# "sudo systemctl start startServer.service"
+
+# required packages for display: "sudo apt-get install libtiff5" and "sudo apt-get install libopenjp2-7"
+
+
 import socket
 import serial
 import struct
@@ -13,8 +21,8 @@ from subprocess import call
 
 import write
 
-
 inputF = ""
+
 
 class Serv(BaseHTTPRequestHandler):
 
@@ -27,7 +35,7 @@ class Serv(BaseHTTPRequestHandler):
         self.send_response(201, 'Created')
         self.end_headers()
         reply_body = 'Raspberry saved "%s"\n' % filename
-        #write.writeToScreen("Incomming File")
+        # write.writeToScreen("Incomming File")
         self.wfile.write(reply_body.encode('utf-8'))
         battaryStatePerc = abstand.batteryState()
         if battaryStatePerc <= 5:
@@ -58,7 +66,6 @@ def execute(pOutput):
 
 
 def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Datei kombinieren und danach ausführen
-
 
     # Reading data from file1
     with open('/home/pi/eduRover/PythonServerOnPy/emptyExample.txt') as fp:
@@ -102,8 +109,7 @@ print()
 
 batteryStatePerc = abstand.batteryState()
 
-
-#write.writeToScreen("Name: " + hostname)
+# write.writeToScreen("Name: " + hostname)
 write.writeToScreen("IP:  " + ip)
 write.writeToScreen("Port:  8080")
 write.writeToScreen("Battery State:  " + str(batteryStatePerc) + "%")
@@ -111,7 +117,6 @@ if batteryStatePerc <= 5:
     write.writeToScreen("Battery too Low")
     write.writeToScreen("-> POWER OFF")
     call("sudo nohup shutdown -h now", shell=True)
-
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()
