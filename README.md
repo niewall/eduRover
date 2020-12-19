@@ -1,0 +1,3 @@
+# eduRover
+In development....
+For Syncing with Raspberry Pi
