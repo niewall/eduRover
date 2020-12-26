@@ -154,10 +154,10 @@ def batteryState():
             cooldown = False
         if timeout > 10:
             counting = False
-        #print(str(GPIO.input(batSignalIn)))
-        #print(str(cooldown))
-        #print("Timeout: " + str(timeout))
-        #print("BatState: " + str(batState))
+        print(str(GPIO.input(batSignalIn)))
+        print(str(cooldown))
+        print("Timeout: " + str(timeout))
+        print("BatState: " + str(batState))
 
     return math.ceil((batState/7) * 100)
 
