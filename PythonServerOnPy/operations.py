@@ -7,7 +7,7 @@ from write import writeToScreen, writeCach, showCachText, showBattery
 # import serial
 
 from abstand import distanz, ledAn, sound, batteryState, buttonPressed
-#from buttons import buttonPressed
+from buttons import buttonPressed
 
 output = []
 ArrayMethode = False
@@ -88,7 +88,7 @@ def batteryDisplay(state):
 
 
 def buttonPress(buttonNr):
-    buttonPressed(buttonNr)
+    return buttonPressed(buttonNr)
 
 
 def send(commandList):
