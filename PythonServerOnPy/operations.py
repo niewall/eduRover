@@ -6,7 +6,7 @@ from write import writeToScreen, writeCach, showCachText, showBattery
 
 # import serial
 
-from abstand import distanz, ledAn, sound, batteryState, buttonPressed
+from abstand import distanz, ledAn, sound, batteryState
 from buttons import buttonPressed
 
 output = []

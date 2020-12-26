@@ -1,5 +1,8 @@
 import RPi.GPIO as GPIO
 
+# Buttons get pulled to vcc(+) over a resistor. If pressed, they get connected to Ground and output LOW (False)
+# That would be the Pressed state, therefore the opposite state is returned.
+
 buttonPin1 = 10
 buttonPin2 = 9
 
@@ -12,9 +15,9 @@ def buttonPressed(buttonNr):
     buttonState2 = GPIO.input(buttonPin2)
 
     if buttonNr == 1:
-        return buttonState1
+        return not buttonState1
     if buttonNr == 2:
-        return buttonState2
+        return not buttonState2
 
     if buttonNr != 1 and buttonNr != 2:
         return False
