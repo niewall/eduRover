@@ -26,7 +26,13 @@ inputF = ""
 
 class Serv(BaseHTTPRequestHandler):
 
-    def do_PUT(self):  # For whole Programms    //in cmd: curl -T input.txt http://192.168.2.186:8080/
+    def do_PUT(self):  # //in cmd: curl -T input.txt http://192.168.2.186:8080/
+        """
+        Mittels http-PUT Befehl wird ein Programmcode vom Rover empfangen und in input.txt gespeichert.
+        An den Sender wird eine Antwort zurückgeschickt.
+        Ist der Akku leer, wird der Rover heruntergefahren.
+        """
+
         filename = os.path.basename(self.path)
         print(self.path)
         file_length = int(self.headers['Content-Length'])
@@ -35,19 +41,22 @@ class Serv(BaseHTTPRequestHandler):
         self.send_response(201, 'Created')
         self.end_headers()
         reply_body = 'Raspberry saved "%s"\n' % filename
-        # write.writeToScreen("Incomming File")
         self.wfile.write(reply_body.encode('utf-8'))
-        battaryStatePerc = abstand.batteryState()
-        if battaryStatePerc <= 5:
+
+        batteryStatePercS = abstand.batteryState()
+        if batteryStatePercS <= 5:
             write.writeToScreen("Battery too Low")
             write.writeToScreen("Bitte Ausschalten")
             call("sudo nohup shutdown -h now", shell=True)
         else:
-            write.updateBatPerc(battaryStatePerc)
+            write.updateBatPerc(batteryStatePercS)
             write.showBattery(True)
             makePyFileAndExecute()
 
     def do_GET(self):  # For direct Commands
+        """
+        Mittels http-GET Befehl wird ein einzelner Fahrbefehl vom Rover empfangen.
+        """
         if str(self.path) != "/favicon.ico":
             try:
                 command = str(self.path)
@@ -61,40 +70,37 @@ class Serv(BaseHTTPRequestHandler):
                 self.wfile.write(bytes("error", 'utf-8'))
 
 
-def execute(pOutput):
-    print(pOutput)
+def makePyFileAndExecute():
+    """
+    Die leere Beispieldatei mit der importierten Datei kombinieren und dann ausführen.
+    """
 
-
-def makePyFileAndExecute():  # Die Leere Beispieldatei mit der importierten Datei kombinieren und danach ausführen
-
-    # Reading data from file1
+    # Den Text aus der leeren Beispieldatei einlesen
     with open('/home/pi/eduRover/PythonServerOnPy/emptyExample.txt') as fp:
         data = fp.read()
 
-    # Reading data from file2
+    # Den Text aus der empfangenden Datei einlesen
     with open('/home/pi/eduRover/PythonServerOnPy/input.txt') as fp:
-        lines = fp.read().split("\n")
-        newlines = []
+        lines = fp.read().split("\n")  # den empfangen Programmcode Zeile für Zeile in eine Liste einfügen
+        newlines = []  # neue leere Liste "newlines" erstellen
         for line in lines:
             line = line.rstrip()
-            newline = line[:0] + '    ' + line[0:]  # Absatz vor jede Zeile Schreiben
+            newline = line[:0] + '    ' + line[0:]  # einen Absatz vor jede Zeile Schreiben
             newlines.append(newline)
     with open("/home/pi/eduRover/PythonServerOnPy/input.txt", "w") as newfile:
-        newfile.write("\n".join(newlines))
+        newfile.write("\n".join(newlines))  # empfangene Datei umschreiben, damit sie ausgeführt werden kann
     with open("/home/pi/eduRover/PythonServerOnPy/input.txt") as newfile:
-        data2 = newfile.read()
+        data2 = newfile.read()  # umgeänderte empfangene Datei neu als "data2" einlesen
 
-    # Merging 2 files
-    # To add the data of file2
-    # from next line
+    # die leere Beispieldatei mit der angepassten Input-Datei kombinieren
     data += "\n"
     data += data2
 
+    # die fertig angepasste Datei nach "programF.py" schrieben
     with open('/home/pi/eduRover/PythonServerOnPy/programF.py', 'w') as fp:
         fp.write(data)
 
-    output = executer.execute()  # Gets the output from the written program
-    execute(output)
+    executer.execute()  # das angepasste Programm wird ausgeführt
 
 
 hostname = socket.gethostname()
@@ -102,14 +108,12 @@ ip = netifaces.ifaddresses("wlan0")[2][0]["addr"]
 
 print("Education Robot Software on Pi (ERoSPi) by NieWall")
 print("Der Computer-Name: " + hostname)
-print("Die IP-Adresse/n: ")
 print("running on IP: " + ip)
 print("running on Port 8080")
 print()
 
 batteryStatePerc = abstand.batteryState()
 
-# write.writeToScreen("Name: " + hostname)
 write.writeToScreen("IP:  " + ip)
 write.writeToScreen("Port:  8080")
 write.writeToScreen("Battery State:  " + str(batteryStatePerc) + "%")
