@@ -4,8 +4,10 @@ import write
 
 def execute():
     """
-    Das Programm in programF wird ausgeführt.
+    Der Code in programF wird ausgeführt.
     Bei einem Fehler wird dieser auf dem Roverbildschirm und in der Konsole ausgegeben.
+    Der Code in programmF greift auf Methoden aus operations.py zu, welche die einfache Programmierung des
+    Rovers ermöglichen.
     """
     try:
         importlib.reload(programF)

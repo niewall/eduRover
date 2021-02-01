@@ -75,11 +75,11 @@ def makePyFileAndExecute():
     Die leere Beispieldatei mit der importierten Datei kombinieren und dann ausführen.
     """
 
-    # Den Text aus der leeren Beispieldatei einlesen
+    # den Text aus der leeren Beispieldatei einlesen
     with open('/home/pi/eduRover/PythonServerOnPy/emptyExample.txt') as fp:
         data = fp.read()
 
-    # Den Text aus der empfangenden Datei einlesen
+    # den Text aus der empfangenden Datei einlesen
     with open('/home/pi/eduRover/PythonServerOnPy/input.txt') as fp:
         lines = fp.read().split("\n")  # den empfangen Programmcode Zeile für Zeile in eine Liste einfügen
         newlines = []  # neue leere Liste "newlines" erstellen

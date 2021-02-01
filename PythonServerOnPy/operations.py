@@ -9,35 +9,20 @@ from write import writeToScreen, writeCach, showCachText, showBattery
 from abstand import distanz, ledAn, sound, batteryState
 from buttons import buttonPressed
 
-output = []
-ArrayMethode = False
-
 
 def forward(pSpeed, pTime):
-    if ArrayMethode:
-        output.extend([1, pSpeed, pTime, 1, pSpeed, pTime])
-    else:
-        send([1, pSpeed, pTime, 1, pSpeed, pTime])
+    send([1, pSpeed, pTime, 1, pSpeed, pTime])
 
 
 def backward(pSpeed, pTime):
-    if ArrayMethode:
-        output.extend([2, pSpeed, pTime, 2, pSpeed, pTime])
-    else:
-        send([2, pSpeed, pTime, 2, pSpeed, pTime])
+    send([2, pSpeed, pTime, 2, pSpeed, pTime])
 
 
 def turn(pDirection, pSpeed, pTime):
-    if ArrayMethode:
-        if pDirection == "rechts" or pDirection == "right":
-            output.extend([1, pSpeed, pTime, 2, pSpeed, pTime])
-        elif pDirection == "links" or pDirection == "left":
-            output.extend([2, pSpeed, pTime, 1, pSpeed, pTime])
-    else:
-        if pDirection == "rechts" or pDirection == "right":
-            send([1, pSpeed, pTime, 2, pSpeed, pTime])
-        elif pDirection == "links" or pDirection == "left":
-            send([2, pSpeed, pTime, 1, pSpeed, pTime])
+    if pDirection == "rechts" or pDirection == "right":
+        send([1, pSpeed, pTime, 2, pSpeed, pTime])
+    elif pDirection == "links" or pDirection == "left":
+        send([2, pSpeed, pTime, 1, pSpeed, pTime])
 
 
 def write(pText):
