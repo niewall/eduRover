@@ -58,13 +58,13 @@ def key_press(key):
     global passkey
     global current
 
-    addToInput(str(key.name))
     if key.name == "backspace":
         removeFromInput()
-    if key.name == "enter":
+    elif key.name == "enter":
         nextInput()
-
-
+    else:
+        addToInput(str(key.name))
+        print(str(key.name))
 
 
 def changeNetwork():
