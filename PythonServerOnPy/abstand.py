@@ -50,7 +50,7 @@ def distanz():
     # setze Trigger auf HIGH
     GPIO.output(GPIO_TRIGGER, True)
 
-    # setze Trigger nach 0.01ms aus LOW
+    # setze Trigger nach 0.01ms auf LOW
     time.sleep(0.00001)
     GPIO.output(GPIO_TRIGGER, False)
 
@@ -73,6 +73,7 @@ def distanz():
 
 
     return distanz
+
 
 def ledAn(farbe):
 
@@ -120,10 +121,10 @@ def ledAn(farbe):
 
 
 def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
-    dur=1.0/freq/2.0          # die Frequenz freq auf dem piezp-Pin
+    dur=1.0/freq/2.0         # die Frequenz freq auf dem piezp-Pin
     anz=int(t/dur/2)
-    for i in range (0,anz):  # range macht, solange der zweite Wert kleiner ist
-                             # (nicht gleich), darum beginnen wir bei 0
+    for i in range (0,anz):
+
         GPIO.output(piezo, GPIO.HIGH)
         time.sleep(dur)
         GPIO.output(piezo, GPIO.LOW)
@@ -131,8 +132,8 @@ def sound(freq, t):          # Diese Funktion erzeugt eine bestimmte Zeit t lang
 
 
 #___Reading the Battery State_____
-#Der Raspberry sendet ein HIGH signal an den Arduino über Pin batSignalOut.
-#Der Arduino wechselt daraufhin
+#Der Raspberry sendet ein HIGH Signal an AtTiny den  über Pin batSignalOut.
+#Die Anzahl der Wiederholungen von HiGH und LOW, welche der AtTiny zurücksendet stellt den Ladestand dar (0-7)
 
 
 def batteryState():

@@ -101,9 +101,6 @@ def send(commandList):
         GPIO.output(serB1, False)
         GPIO.output(serB2, True)
 
-    print("Direction1: " + str(direction1) + " | " + "Direction2: " + str(direction2) + " | " + "Time1: " + str(
-        pTime) + " |  ")
-
     time.sleep(pTime)
     GPIO.output(enA, False)
     GPIO.output(enB, False)
@@ -113,3 +110,9 @@ def send(commandList):
     GPIO.output(serB2, False)
     p.ChangeDutyCycle(0)
     p2.ChangeDutyCycle(0)
+
+
+
+
+
+

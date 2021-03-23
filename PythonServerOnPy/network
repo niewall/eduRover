@@ -1,0 +1,98 @@
+import subprocess
+import write
+from pynput.keyboard import Listener, Key
+
+ssid = ""
+passkey = ""
+current = 0
+
+
+def addToInput(pChar):
+    global ssid
+    global passkey
+    global current
+
+    # cls()
+
+    if current == 0:
+        ssid += pChar
+        print(ssid)
+    elif current == 1:
+        passkey += pChar
+        print(passkey)
+
+    networkMenu()
+
+
+def removeFromInput():
+    global ssid
+    global passkey
+    global current
+
+    # cls()
+
+    if current == 0:
+        ssid = ssid[:-1]
+        print(ssid)
+    elif current == 1:
+        passkey = passkey[:-1]
+        print(passkey)
+
+    networkMenu()
+
+
+def nextInput():
+    global ssid
+    global passkey
+    global current
+
+    if current == 0:
+        current = 1
+    elif current == 1:
+        current = 0
+        changeNetwork()
+
+
+def on_press(key):
+    global ssid
+    global passkey
+    global current
+
+    if hasattr(key, 'char'):  # Write the character pressed if available
+        addToInput(str(key.char))
+        # print(str(key.char))
+    elif key == Key.space:  # If space was pressed, write a space
+        print("")
+    elif key == Key.enter:  # If enter was pressed, write a new line
+        print("")
+        print(ssid)
+    elif key == Key.tab:  # If tab was pressed, write a tab
+        print("")
+    elif key == Key.backspace:  # If tab was pressed, write a tab
+        print("")
+        removeFromInput()
+    else:  # If anything else was pressed, write [<key_name>]
+        print("Key pressed: {0}".format(key))
+
+
+with Listener(on_press=on_press) as listener:  # Setup the listener
+    listener.join()  # Join the thread to the main thread
+
+
+def changeNetwork():
+
+    p1 = subprocess.Popen(["wpa_passphrase", ssid, passkey], stdout=subprocess.PIPE)
+    p2 = subprocess.Popen(["sudo", "tee", "-a", "/etc/wpa_supplicant/wpa_supplicant.conf", ">", "/dev/null"], stdin=p1.stdout, stdout=subprocess.PIPE)
+    p1.stdout.close()  # Give p1 a SIGPIPE if p2 dies.
+    output,err = p2.communicate()
+
+def networkMenu():
+    global ssid
+    global passkey
+    global current
+
+    write.writeCach("Netzwerkdaten eingeben")
+    write.writeCach("SSID: " + ssid)
+    write.writeCach("PWD:" + passkey)
+    write.showCachText()
+

@@ -13,6 +13,7 @@ import serial
 import struct
 import time
 import executer
+import network
 import os
 import netifaces
 from directDrive import drive
@@ -114,6 +115,9 @@ print()
 
 batteryStatePerc = abstand.batteryState()
 
+
+
+# Beim Start wichtige Informationen anzeigen
 write.writeToScreen("IP:  " + ip)
 write.writeToScreen("Port:  8080")
 write.writeToScreen("Battery State:  " + str(batteryStatePerc) + "%")
@@ -121,6 +125,10 @@ if batteryStatePerc <= 5:
     write.writeToScreen("Battery too Low")
     write.writeToScreen("-> POWER OFF")
     call("sudo nohup shutdown -h now", shell=True)
+
+if ip == "192.168.2.168":
+    network.networkMenu()
+
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()
