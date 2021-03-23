@@ -5,7 +5,6 @@ import keyboard
 ssid = ""
 passkey = ""
 current = 0
-keyboard.on_press(key_press)
 
 
 
@@ -67,6 +66,9 @@ def key_press(key):
     else:
         addToInput(str(key.name))
         print(str(key.name))
+
+keyboard.on_press(key_press)
+
 
 
 def changeNetwork():
