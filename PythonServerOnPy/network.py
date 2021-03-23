@@ -5,6 +5,8 @@ import keyboard
 ssid = ""
 passkey = ""
 current = 0
+keyboard.on_press(key_press)
+
 
 
 def addToInput(pChar):
