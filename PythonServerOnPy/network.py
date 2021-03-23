@@ -1,6 +1,6 @@
 import subprocess
 import write
-from pynput.keyboard import Listener, Key
+import keyboard
 
 ssid = ""
 passkey = ""
@@ -53,30 +53,18 @@ def nextInput():
         changeNetwork()
 
 
-def on_press(key):
+def key_press(key):
     global ssid
     global passkey
     global current
 
-    if hasattr(key, 'char'):  # Write the character pressed if available
-        addToInput(str(key.char))
-        # print(str(key.char))
-    elif key == Key.space:  # If space was pressed, write a space
-        print("")
-    elif key == Key.enter:  # If enter was pressed, write a new line
-        print("")
-        print(ssid)
-    elif key == Key.tab:  # If tab was pressed, write a tab
-        print("")
-    elif key == Key.backspace:  # If tab was pressed, write a tab
-        print("")
+    addToInput(str(key.name))
+    if key.name == "backspace":
         removeFromInput()
-    else:  # If anything else was pressed, write [<key_name>]
-        print("Key pressed: {0}".format(key))
+    if key.name == "enter":
+        nextInput()
 
 
-with Listener(on_press=on_press) as listener:  # Setup the listener
-    listener.join()  # Join the thread to the main thread
 
 
 def changeNetwork():
