@@ -6,6 +6,7 @@ import os
 ssid = ""
 passkey = ""
 current = 0
+inputKeyboard = True
 
 
 def addToInput(pChar):
@@ -58,12 +59,16 @@ def key_press(key):
     global ssid
     global passkey
     global current
+    global inputKeyboard
 
-    if key.name == "backspace":
+    if key.name == "backspace" and inputKeyboard:
         removeFromInput()
-    elif key.name == "enter":
+    elif key.name == "enter" and inputKeyboard:
         nextInput()
-    elif len(key.name) == 1:
+    elif key.name == "esc":
+        inputKeyboard = not inputKeyboard
+        write.writeToScreen("Keyboard: " + str(inputKeyboard))
+    elif len(key.name) == 1 and inputKeyboard:
         letter = str(key.name)
         if keyboard.is_pressed("shift"):
             letter = letter.capitalize()
