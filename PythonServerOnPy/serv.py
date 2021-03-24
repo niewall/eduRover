@@ -105,7 +105,14 @@ def makePyFileAndExecute():
 
 
 hostname = socket.gethostname()
-ip = netifaces.ifaddresses("wlan0")[2][0]["addr"]
+
+try:
+    ip = netifaces.ifaddresses("wlan0")[2][0]["addr"]
+except:
+    network.networkMenu()
+    while True:
+        i = 1
+
 
 print("Education Robot Software on Pi (ERoSPi) by NieWall")
 print("Der Computer-Name: " + hostname)
@@ -126,9 +133,8 @@ if batteryStatePerc <= 5:
     write.writeToScreen("-> POWER OFF")
     call("sudo nohup shutdown -h now", shell=True)
 
-if ip == "192.168.2.168":
-    network.networkMenu()
-
 
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()
+
+

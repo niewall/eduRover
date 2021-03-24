@@ -7,7 +7,6 @@ passkey = ""
 current = 0
 
 
-
 def addToInput(pChar):
     global ssid
     global passkey
@@ -17,10 +16,10 @@ def addToInput(pChar):
 
     if current == 0:
         ssid += pChar
-        print(ssid)
+        #print(ssid)
     elif current == 1:
         passkey += pChar
-        print(passkey)
+        #print(passkey)
 
     networkMenu()
 
@@ -34,10 +33,10 @@ def removeFromInput():
 
     if current == 0:
         ssid = ssid[:-1]
-        print(ssid)
+        #print(ssid)
     elif current == 1:
         passkey = passkey[:-1]
-        print(passkey)
+        #print(passkey)
 
     networkMenu()
 
@@ -63,11 +62,17 @@ def key_press(key):
         removeFromInput()
     elif key.name == "enter":
         nextInput()
-    else:
-        addToInput(str(key.name))
-        print(str(key.name))
+    elif len(key.name) == 1:
+        letter = str(key.name)
+        if keyboard.is_pressed("shift"):
+            letter = letter.capitalize()
+        addToInput(str(letter))
+
+
+
 
 keyboard.on_press(key_press)
+
 
 
 
