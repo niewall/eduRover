@@ -1,3 +1,5 @@
+// Motoransteuerung mit dem Arduino bei dem Prototyp. Bei neuer Version nicht mehr in Verwendung.
+
 // MD03A_Motor_basic + encoder
 
 #define InA1            9                      // INA motor pin
