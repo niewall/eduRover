@@ -11,3 +11,5 @@ https://www.thingiverse.com/thing:4852742
 # Schaltpläne
 https://drive.google.com/drive/folders/1dtRsnOfrm13aY9I_XftBWymn9Pg5m0fj?usp=sharing
 
+# Dokumentation (bLL)
+https://drive.google.com/file/d/1v4ytOk8WFCeoa2mepZp0ptsbWZozoEHf/view?usp=sharing
