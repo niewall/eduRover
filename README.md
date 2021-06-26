@@ -4,12 +4,10 @@ Um nicht auf dem Raspberry direkt programmieren zu müssen, habe ich den Program
 
 Neben der Website existiert jetzt auch ein auf Java basierender Editor (basierend auf:https://github.com/pH-7/Simple-Java-Text-Editor), welcher um die Funktion des Roboter-programmierens erweitert wurde.
 
-<<<<<<< HEAD
 
-=======
 # 3D Dateien
 https://www.thingiverse.com/thing:4852742
 
 # Schaltpläne
 https://drive.google.com/drive/folders/1dtRsnOfrm13aY9I_XftBWymn9Pg5m0fj?usp=sharing
->>>>>>>
+
