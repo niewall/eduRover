@@ -107,7 +107,7 @@ def ledAn(farbe):
         GPIO.output(green, 0)
         GPIO.output(blue, 0)
 
-    if farbe == "weiß":
+    if farbe == "weiss":
         GPIO.output(red, 0)
         GPIO.output(green, 0)
         GPIO.output(blue, 0)

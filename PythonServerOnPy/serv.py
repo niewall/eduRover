@@ -16,13 +16,14 @@ import executer
 import network
 import os
 import netifaces
-from directDrive import drive
+from directDrive import drive, driveContinuesly
 import abstand
 from subprocess import call
 
 import write
 
 inputF = ""
+lastCommandGet = ""
 
 
 class Serv(BaseHTTPRequestHandler):
@@ -61,7 +62,8 @@ class Serv(BaseHTTPRequestHandler):
         if str(self.path) != "/favicon.ico":
             try:
                 command = str(self.path)
-                drive(command)
+                if command != lastCommandGet:
+                    driveContinuesly(command)
                 self.send_response(200)
                 self.end_headers()
                 self.path = ""
@@ -113,7 +115,6 @@ except:
     while True:
         i = 1
 
-
 print("Education Robot Software on Pi (ERoSPi) by NieWall")
 print("Der Computer-Name: " + hostname)
 print("running on IP: " + ip)
@@ -121,8 +122,6 @@ print("running on Port 8080")
 print()
 
 batteryStatePerc = abstand.batteryState()
-
-
 
 # Beim Start wichtige Informationen anzeigen
 write.writeToScreen("IP:  " + ip)
@@ -133,8 +132,5 @@ if batteryStatePerc <= 5:
     write.writeToScreen("-> POWER OFF")
     call("sudo nohup shutdown -h now", shell=True)
 
-
 httpd = HTTPServer((ip, 8080), Serv)
 httpd.serve_forever()
-
-
