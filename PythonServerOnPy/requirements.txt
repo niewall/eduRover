@@ -2,7 +2,7 @@
 Adafruit_GPIO==1.0.3
 Adafruit_SSD1306==1.6.2
 netifaces==0.10.9
-Pillow==8.0.1
+Pillow==10.0.1
 pyserial==3.5
 keyboard
 serial
